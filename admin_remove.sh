@@ -50,12 +50,13 @@ printf "Partition$GREEN Located $NC\n"
 
 #create mountpoint
 sudo mkdir -p $MOUNT
-
+w
 #mount partition
 sudo mount -t auto -v /dev/$DISK $MOUNT
 printf "Partition$GREEN mounted$NC\n\n" 
 
 printf "Enabling universe repo\n"
+
 #enable universe repo
 sudo add-apt-repository universe &> /dev/null;
 sudo apt update &> /dev/null;
@@ -105,7 +106,7 @@ while [ $sec -ge 0 ]; do
 	sleep 1;
 done
 
-#sudo reboot;
+# sudo reboot;
 
 
 
