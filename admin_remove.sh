@@ -50,7 +50,7 @@ printf "Partition$GREEN Located $NC\n"
 
 #create mountpoint
 sudo mkdir -p $MOUNT
-w
+
 #mount partition
 sudo mount -t auto -v /dev/$DISK $MOUNT
 printf "Partition$GREEN mounted$NC\n\n" 
