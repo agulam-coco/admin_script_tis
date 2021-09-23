@@ -93,7 +93,7 @@ cd $DIR;
 printf "SAM file$GREEN exists$NC\n\n";
 
 printf "Running$BLUE chntpw$NC with user$BLUE $USER$NC\n\n"; 
-chntpw -i $USER SAM;
+chntpw -u $USER SAM;
 
 #unmount partition
 sudo umount /dev/$DISK -l;

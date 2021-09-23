@@ -2,6 +2,16 @@
 
 CLONE_DIR="admin_script_tis" 
 
+#check if script is being run as root
+if [[ $EUID -ne 0 ]]
+then
+   error_message "This script must be run as root" 
+   exit 1;
+fi
+
+#install needed dependencies
+sudo apt install --yes curl git
+
 if [ -d $CLONE_DIR ] ;
 then
 #remove the directory and reclone
@@ -12,4 +22,4 @@ fi
 git clone https://github.com/agulam-coco/admin_script_tis.git
 
 cd $CLONE_DIR
-./admin_remove.sh "$@"	
+sudo ./admin_remove.sh "$@"	
