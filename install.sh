@@ -2,6 +2,14 @@
 
 CLONE_DIR="admin_script_tis" 
 
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+function error_message (){
+	printf $RED"Error:$NC $1\n" >&2
+}
+
 #check if script is being run as root
 if [[ $EUID -ne 0 ]]
 then
@@ -10,13 +18,13 @@ then
 fi
 
 #install needed dependencies
-sudo apt install --yes curl git
+sudo apt install --yes git
 
 if [ -d $CLONE_DIR ] ;
 then
 #remove the directory and reclone
    rm -rf $CLONE_DIR 
-   printf "Folder already existed and has been removed\n" 
+   printf $BLUE"Folder already existed and has been removed\n$NC" 
 fi
 
 git clone https://github.com/agulam-coco/admin_script_tis.git
